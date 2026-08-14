@@ -1,0 +1,6 @@
+{
+  "name": "AI Resume & Career Advisor",
+  "description": "AI-powered resume analyzer, ATS compatibility evaluator, career roadmap generator, and intelligent mock interview coach with RAG grounding.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
