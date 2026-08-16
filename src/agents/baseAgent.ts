@@ -61,7 +61,8 @@ export class BaseAgent {
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
       // Re-fetch candidate models on each attempt so that newly cooled down models are deprioritized
       const candidates = modelManager.getCandidateModels(this.defaultModel);
-      const currentModel = candidates[attempt % candidates.length];
+      // Select the first available healthy model
+      const currentModel = candidates[0] || this.defaultModel;
       try {
         const res = await fn(ai, currentModel);
         modelManager.reportModelSuccess(currentModel);
@@ -72,10 +73,10 @@ export class BaseAgent {
 
         if (isTransient && attempt < maxRetries) {
           const freshCandidates = modelManager.getCandidateModels(this.defaultModel);
-          const nextModel = freshCandidates[(attempt + 1) % freshCandidates.length];
+          const nextModel = freshCandidates[0] || 'gemini-3.1-flash-lite';
           const delay = 250 + Math.floor(Math.random() * 250);
           console.info(
-            `[${this.name}] Transient rate/quota limit on ${currentModel}. Rotating to healthy model: ${nextModel}...`
+            `[${this.name}] Transient rate/quota limit (503/429) on ${currentModel}. Rotating to healthy model: ${nextModel}...`
           );
           await new Promise((resolve) => setTimeout(resolve, delay));
           continue;
