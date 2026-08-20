@@ -25,7 +25,7 @@ import { userMemoryStore } from './src/memory/userMemoryStore';
 import { modelManager } from './src/utils/modelManager';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 // Trust proxy for rate limiter (required when running behind a reverse proxy like Cloud Run)
 app.set('trust proxy', 1);
