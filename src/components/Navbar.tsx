@@ -68,13 +68,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
 
               {/* Role Status Badge */}
-              <button
-                onClick={onToggleRole}
-                title="Click to toggle user role"
-                className={`hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border transition-all hover:scale-105 ${
+              <div
+                className={`hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
                   user.role === 'admin'
-                    ? 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30 hover:bg-indigo-500/25'
-                    : 'bg-zinc-800/80 text-zinc-300 border-zinc-700/80 hover:bg-zinc-700/80'
+                    ? 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30'
+                    : 'bg-zinc-800/80 text-zinc-300 border-zinc-700/80'
                 }`}
               >
                 {user.role === 'admin' ? (
@@ -83,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <UserCheck className="w-3.5 h-3.5 text-emerald-400" />
                 )}
                 <span>Role: {user.role === 'admin' ? 'Admin' : 'Job Seeker'}</span>
-              </button>
+              </div>
 
               {/* User Profile Info Card */}
               <div className="flex items-center gap-2.5 bg-zinc-800/60 pl-2.5 pr-3.5 py-1 rounded-full border border-zinc-700/60 shadow-inner">
