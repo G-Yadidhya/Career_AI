@@ -35,9 +35,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="flex items-center gap-3.5 cursor-pointer group" 
           onClick={() => onSelectView('dashboard')}
         >
-          <div className="w-9 h-9 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl flex items-center justify-center font-black text-white text-lg shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-            C
-          </div>
+          <img 
+            src="/src/assets/images/career_ai_favicon_1787576657928.jpg" 
+            alt="Career.AI Logo" 
+            className="w-9 h-9 rounded-xl object-cover shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform border border-indigo-500/30" 
+            referrerPolicy="no-referrer"
+          />
           <div>
             <div className="flex items-center gap-2.5">
               <span className="text-xl font-black tracking-tight text-white uppercase font-sans">
