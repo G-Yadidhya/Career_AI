@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={() => onSelectView('dashboard')}
         >
           <img 
-            src="/src/assets/images/career_ai_favicon_1787576657928.jpg" 
+            src="/favicon.jpg" 
             alt="Career.AI Logo" 
             className="w-9 h-9 rounded-xl object-cover shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform border border-indigo-500/30" 
             referrerPolicy="no-referrer"
