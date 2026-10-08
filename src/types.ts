@@ -503,14 +503,6 @@ export interface RAGSource {
   snippet: string;
 }
 
-export interface CollegeDocSection {
-  id: string;
-  num: number;
-  title: string;
-  content: string;
-  subpoints?: string[];
-  diagramCode?: string;
-}
 
 export interface MemoryResumeRecord {
   id: string;

@@ -341,7 +341,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
     <div className="space-y-6 animate-fade-in text-zinc-900 dark:text-zinc-100" id="ai-dashboard-root">
       
       {/* Header Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 p-6 sm:p-8 shadow-md transition-colors">
+      <div className="relative overflow-hidden rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-6 sm:p-8 shadow-xs transition-colors">
         <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent pointer-events-none" />
         
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -367,7 +367,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </button>
             <button
               onClick={() => onNavigate('interview')}
-              className="px-4 py-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-white border border-zinc-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider rounded-xl flex items-center gap-2 transition-all"
+              className="px-4 py-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-white border border-zinc-200 dark:border-zinc-700 text-xs font-bold uppercase tracking-wider rounded-xl flex items-center gap-2 transition-all"
               id="dash-nav-mock-btn"
             >
               <Mic className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> Practice Spoken STAR
@@ -396,7 +396,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       )}
 
       {/* Tabs Navigation */}
-      <div className="flex flex-wrap gap-1 border-b border-zinc-200 dark:border-white/10 pb-px overflow-x-auto scrollbar-none" id="dashboard-tab-navigation">
+      <div className="flex flex-wrap gap-1 border-b border-zinc-200 dark:border-zinc-800 pb-px overflow-x-auto scrollbar-none" id="dashboard-tab-navigation">
         {[
           { key: 'overview', label: 'Overview', icon: Sparkle },
           { key: 'resume-evolution', label: 'Resume Evolution', icon: History },
@@ -437,77 +437,121 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               
               {/* Readiness Card */}
-              <div className="bg-zinc-900/60 border border-white/10 p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+              <div className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-6 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-xs">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Career Readiness</span>
-                    <span className="p-2 bg-indigo-500/10 text-indigo-400 rounded-xl border border-indigo-500/20">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">Career Readiness</span>
+                    <span className="p-2 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 rounded-xl border border-indigo-200/80 dark:border-indigo-800/60">
                       <Award className="w-4 h-4" />
                     </span>
                   </div>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-4xl font-black text-white tracking-tight">{careerReadinessDetail.score}%</span>
+                    <span className="text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">{careerReadinessDetail.score}%</span>
                     <span className="text-xs text-zinc-500 font-mono">Index</span>
                   </div>
                 </div>
-                <div className="mt-4 pt-3 border-t border-white/5 text-xs text-zinc-400 leading-relaxed">
-                  <span className="text-white font-semibold">AI Prediction:</span> Highly ready for modern engineering scopes. Needs minor Kubernetes experience.
+                <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  <span className="text-zinc-900 dark:text-white font-semibold">AI Prediction:</span> Highly ready for modern engineering scopes. Needs minor Kubernetes experience.
                 </div>
               </div>
 
               {/* Skill Gap Card */}
-              <div className="bg-zinc-900/60 border border-white/10 p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+              <div className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-6 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-xs">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Skill Gaps Tracked</span>
-                    <span className="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl border border-emerald-500/20">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">Skill Gaps Tracked</span>
+                    <span className="p-2 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 rounded-xl border border-emerald-200/80 dark:border-emerald-800/60">
                       <Target className="w-4 h-4" />
                     </span>
                   </div>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-4xl font-black text-white tracking-tight">84%</span>
+                    <span className="text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">84%</span>
                     <span className="text-xs text-zinc-500 font-mono">Matched</span>
                   </div>
                 </div>
-                <div className="mt-4 pt-3 border-t border-white/5 text-xs text-zinc-400 leading-relaxed">
-                  <span className="text-white font-semibold">Critical Need:</span> Docker container builds and active Kubernetes manifest configurations.
+                <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  <span className="text-zinc-900 dark:text-white font-semibold">Critical Need:</span> Docker container builds and active Kubernetes manifest configurations.
                 </div>
               </div>
 
               {/* Resume State Card */}
-              <div className="bg-zinc-900/60 border border-white/10 p-6 rounded-3xl relative overflow-hidden flex flex-col justify-between">
+              <div className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-6 rounded-2xl relative overflow-hidden flex flex-col justify-between shadow-xs">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Latest ATS Audit</span>
-                    <span className="p-2 bg-indigo-500/10 text-indigo-400 rounded-xl border border-indigo-500/20">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">Latest ATS Audit</span>
+                    <span className="p-2 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 rounded-xl border border-indigo-200/80 dark:border-indigo-800/60">
                       <FileCheck className="w-4 h-4" />
                     </span>
                   </div>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-4xl font-black text-white tracking-tight">{atsScore}</span>
+                    <span className="text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">{atsScore}</span>
                     <span className="text-xs text-zinc-500 font-mono">/ 100</span>
                   </div>
                 </div>
-                <div className="mt-4 pt-3 border-t border-white/5 text-xs text-zinc-400 leading-relaxed">
-                  <span className="text-white font-semibold">Parser Verdict:</span> Excellent linear parsing density. Verbs and metrics checked successfully.
+                <div className="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  <span className="text-zinc-900 dark:text-white font-semibold">Parser Verdict:</span> Excellent linear parsing density. Verbs and metrics checked successfully.
                 </div>
               </div>
 
+            </div>
+
+            {/* Quick Actions Row */}
+            <div className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-5 rounded-2xl shadow-xs">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                  Quick Actions
+                </span>
+                <span className="text-xs text-zinc-400">Jump directly into career tools</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <button
+                  onClick={() => onNavigate('resume')}
+                  className="p-3.5 rounded-xl bg-zinc-50 hover:bg-indigo-50/80 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all text-left group"
+                >
+                  <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mb-2 group-hover:scale-110 transition-transform" />
+                  <p className="text-xs font-bold text-zinc-900 dark:text-zinc-100">Analyze Resume</p>
+                  <p className="text-[10px] text-zinc-500 dark:text-zinc-400">ATS audit & score</p>
+                </button>
+                <button
+                  onClick={() => onNavigate('resume-builder')}
+                  className="p-3.5 rounded-xl bg-zinc-50 hover:bg-indigo-50/80 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all text-left group"
+                >
+                  <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mb-2 group-hover:scale-110 transition-transform" />
+                  <p className="text-xs font-bold text-zinc-900 dark:text-zinc-100">Build Resume</p>
+                  <p className="text-[10px] text-zinc-500 dark:text-zinc-400">AI PDF & sections</p>
+                </button>
+                <button
+                  onClick={() => onNavigate('job-matcher')}
+                  className="p-3.5 rounded-xl bg-zinc-50 hover:bg-emerald-50/80 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 hover:border-emerald-300 dark:hover:border-emerald-500/50 transition-all text-left group"
+                >
+                  <Briefcase className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mb-2 group-hover:scale-110 transition-transform" />
+                  <p className="text-xs font-bold text-zinc-900 dark:text-zinc-100">Match a Job</p>
+                  <p className="text-[10px] text-zinc-500 dark:text-zinc-400">Gap & score analysis</p>
+                </button>
+                <button
+                  onClick={() => onNavigate('interview')}
+                  className="p-3.5 rounded-xl bg-zinc-50 hover:bg-indigo-50/80 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 hover:border-indigo-300 dark:hover:border-indigo-500/50 transition-all text-left group"
+                >
+                  <Mic className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mb-2 group-hover:scale-110 transition-transform" />
+                  <p className="text-xs font-bold text-zinc-900 dark:text-zinc-100">Practice Interview</p>
+                  <p className="text-[10px] text-zinc-500 dark:text-zinc-400">Live STAR coaching</p>
+                </button>
+              </div>
             </div>
 
             {/* Trajectory Area Charts */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               
               {/* Progress History Chart */}
-              <div className="lg:col-span-2 bg-zinc-900/60 border border-white/10 p-6 rounded-3xl">
+              <div className="lg:col-span-2 bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-6 rounded-2xl shadow-xs">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-1.5">
-                      <TrendingUp className="w-4 h-4 text-indigo-400" /> Multidimensional AI Learning & Rating History
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white flex items-center gap-1.5">
+                      <TrendingUp className="w-4 h-4 text-indigo-600 dark:text-indigo-400" /> Multidimensional AI Learning & Rating History
                     </h3>
-                    <p className="text-xs text-zinc-400 mt-1">Sustained tracking of resume, mock STAR, and core technical preparation metrics.</p>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Sustained tracking of resume, mock STAR, and core technical preparation metrics.</p>
                   </div>
-                  <span className="text-[9px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/10 text-zinc-300 border border-white/10">
+                  <span className="text-[9px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 border border-zinc-200/80 dark:border-zinc-700">
                     Model 3.5 Flash
                   </span>
                 </div>
@@ -516,21 +560,21 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     <AreaChart data={progressData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                       <defs>
                         <linearGradient id="colorAts" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="#6366f1" stopOpacity={0.4} />
-                          <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+                          <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.3} />
+                          <stop offset="95%" stopColor="#4f46e5" stopOpacity={0} />
                         </linearGradient>
                         <linearGradient id="colorReadiness" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="5%" stopColor="#10b981" stopOpacity={0.4} />
+                          <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
                           <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                         </linearGradient>
                       </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#e4e4e7" />
+                      <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                       <XAxis dataKey="date" stroke="#71717a" fontSize={11} />
                       <YAxis stroke="#71717a" fontSize={11} domain={[0, 100]} />
                       <Tooltip
-                        contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e4e4e7', borderRadius: '16px', fontSize: '12px', color: '#18181b' }}
+                        contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', borderRadius: '12px', fontSize: '12px', color: '#111827', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                       />
-                      <Area type="monotone" dataKey="atsScore" name="ATS Evaluation" stroke="#6366f1" strokeWidth={2} fillOpacity={1} fill="url(#colorAts)" />
+                      <Area type="monotone" dataKey="atsScore" name="ATS Evaluation" stroke="#4f46e5" strokeWidth={2} fillOpacity={1} fill="url(#colorAts)" />
                       <Area type="monotone" dataKey="readiness" name="Readiness Index" stroke="#10b981" strokeWidth={2} fillOpacity={1} fill="url(#colorReadiness)" />
                     </AreaChart>
                   </ResponsiveContainer>
@@ -538,22 +582,22 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               </div>
 
               {/* Radar Chart */}
-              <div className="bg-zinc-900/60 border border-white/10 p-6 rounded-3xl">
+              <div className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-6 rounded-2xl shadow-xs">
                 <div className="mb-4">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-1.5">
-                    <Target className="w-4 h-4 text-emerald-400" /> Target Competencies
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white flex items-center gap-1.5">
+                    <Target className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Target Competencies
                   </h3>
-                  <p className="text-xs text-zinc-400 mt-1">Skill index vs. Senior candidate profile benchmarks.</p>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Skill index vs. Senior candidate profile benchmarks.</p>
                 </div>
                 <div className="h-64 w-full">
                   <ResponsiveContainer width="100%" height="100%">
                     <RadarChart cx="50%" cy="50%" outerRadius="75%" data={skillRadarData}>
-                      <PolarGrid stroke="#e4e4e7" />
-                      <PolarAngleAxis dataKey="subject" stroke="#52525b" fontSize={9} />
+                      <PolarGrid stroke="#e5e7eb" />
+                      <PolarAngleAxis dataKey="subject" stroke="#4b5563" fontSize={9} />
                       <PolarRadiusAxis angle={30} domain={[0, 100]} stroke="#71717a" fontSize={8} />
-                      <Radar name="Your Score" dataKey="Candidate" stroke="#818cf8" fill="#6366f1" fillOpacity={0.3} />
-                      <Radar name="Senior Target" dataKey="Benchmark" stroke="#10b981" fill="#10b981" fillOpacity={0.1} />
-                      <Tooltip contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e4e4e7', borderRadius: '12px', fontSize: '11px', color: '#18181b' }} />
+                      <Radar name="Your Score" dataKey="Candidate" stroke="#4f46e5" fill="#4f46e5" fillOpacity={0.25} />
+                      <Radar name="Senior Target" dataKey="Benchmark" stroke="#10b981" fill="#10b981" fillOpacity={0.15} />
+                      <Tooltip contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', borderRadius: '12px', fontSize: '11px', color: '#111827' }} />
                     </RadarChart>
                   </ResponsiveContainer>
                 </div>
@@ -562,19 +606,19 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
 
             {/* Overview Bottom Call-to-Actions */}
-            <div className="p-5 bg-indigo-950/20 border border-indigo-500/20 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="p-5 bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-900/40 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
               <div className="flex items-center gap-3">
-                <span className="w-10 h-10 bg-indigo-500/20 border border-indigo-500/30 rounded-full flex items-center justify-center text-indigo-300">
+                <span className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 border border-indigo-200 dark:border-indigo-800 rounded-full flex items-center justify-center text-indigo-700 dark:text-indigo-300">
                   <Sparkles className="w-5 h-5" />
                 </span>
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-white">Unlock Senior AI Tier Readiness</h4>
-                  <p className="text-xs text-zinc-400 mt-0.5">We detected 2 major infrastructure gaps preventing higher job matching probability.</p>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-indigo-950 dark:text-indigo-200">Unlock Senior AI Tier Readiness</h4>
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5">We detected 2 major infrastructure gaps preventing higher job matching probability.</p>
                 </div>
               </div>
               <button
                 onClick={() => setActiveTab('skill-gaps')}
-                className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold uppercase tracking-wider rounded-full flex items-center gap-2 transition-all"
+                className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl flex items-center gap-2 transition-all shadow-xs"
               >
                 Remediate Skill Gaps <ArrowRight className="w-3.5 h-3.5" />
               </button>
@@ -586,51 +630,52 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* TAB 2: RESUME EVOLUTION */}
         {activeTab === 'resume-evolution' && (
           <div className="space-y-6 animate-fade-in" id="tab-content-resume-evolution">
-            <div className="bg-zinc-900/40 p-6 rounded-3xl border border-white/10 space-y-4">
+            <div className="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 space-y-4 shadow-xs">
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-2">
-                  <History className="w-4 h-4 text-indigo-400" /> Resume Evolution Timeline
+                <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white flex items-center gap-2">
+                  <History className="w-4 h-4 text-indigo-600 dark:text-indigo-400" /> Resume Evolution Timeline
                 </h3>
-                <p className="text-xs text-zinc-400 mt-1">Grounded history tracking ATS compatibility optimizations step-by-step.</p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Grounded history tracking ATS compatibility optimizations step-by-step.</p>
               </div>
 
               <div className="space-y-4">
                 {resumeVersions.map((rev, index) => (
-                  <div key={index} className="p-4 bg-zinc-900/60 rounded-2xl border border-white/10 space-y-3 relative">
-                    <div className="absolute right-4 top-4 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold tracking-wider text-indigo-300">
+                  <div key={index} className="p-4 sm:p-5 bg-zinc-50/70 dark:bg-zinc-950 rounded-xl border border-zinc-200/80 dark:border-zinc-800 space-y-3 relative shadow-2xs">
+                    <div className="absolute right-4 top-4 px-3 py-1 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-full text-[10px] font-bold tracking-wider text-indigo-700 dark:text-indigo-300 shadow-2xs">
                       Score: {rev.score}%
                     </div>
                     
                     <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigo-500" />
-                      <span className="text-xs font-bold uppercase tracking-wider text-white">{rev.version}</span>
-                      <span className="text-[10px] text-zinc-500">• {rev.date}</span>
+                      <span className="w-2 h-2 rounded-full bg-indigo-600" />
+                      <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">{rev.version}</span>
+                      <span className="text-[10px] text-zinc-500 dark:text-zinc-400">• {rev.date}</span>
                     </div>
 
-                    <p className="text-xs text-zinc-300 leading-relaxed">
-                      <strong className="text-white">Optimization Objective:</strong> {rev.focus}
+                    <p className="text-xs text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                      <strong className="text-zinc-900 dark:text-white">Optimization Objective:</strong> {rev.focus}
                     </p>
 
                     {/* Score Audit containing complete Reason, Evidence, Confidence, Recommendation block */}
-                    <div className="p-4 bg-black/40 border border-white/10 rounded-xl text-xs space-y-2.5">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-indigo-400 block mb-1">✓ AI Audit Report</span>
+                    <div className="p-4 bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-xl text-xs space-y-2.5 shadow-2xs">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block mb-1">✓ AI Audit Report</span>
                       
-                      <p className="text-zinc-300">
-                        <strong className="text-white">Reason:</strong> {rev.scoreDetail.reason}
+                      <p className="text-zinc-700 dark:text-zinc-300">
+                        <strong className="text-zinc-900 dark:text-white">Reason:</strong> {rev.scoreDetail.reason}
                       </p>
                       
-                      <p className="text-zinc-400 italic border-l border-indigo-500/30 pl-2 text-[11px]">
-                        <strong className="text-zinc-300 font-medium not-italic">Evidence:</strong> "{rev.scoreDetail.evidence}"
+                      <p className="text-zinc-600 dark:text-zinc-400 italic border-l-2 border-indigo-400 pl-2 text-[11px]">
+                        <strong className="text-zinc-700 dark:text-zinc-300 font-medium not-italic">Evidence:</strong> "{rev.scoreDetail.evidence}"
                       </p>
                       
                       <div className="flex items-center gap-1.5 text-[10px] text-zinc-500">
-                        <strong className="text-zinc-400">Confidence Metric:</strong>
-                        <span className="px-1.5 py-0.5 bg-indigo-500/10 text-indigo-300 rounded font-mono">{(rev.scoreDetail.confidence * 100).toFixed(0)}%</span>
+                        <strong className="text-zinc-600 dark:text-zinc-400">Confidence Metric:</strong>
+                        <span className="px-1.5 py-0.5 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 rounded font-mono">{(rev.scoreDetail.confidence * 100).toFixed(0)}%</span>
                       </div>
 
-                      <p className="text-indigo-200 text-[11px]">
-                        <strong className="text-indigo-300">Recommendation:</strong> {rev.scoreDetail.recommendation}
-                      </p>
+                      <div className="p-2.5 bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200/70 dark:border-indigo-900/50 rounded-lg text-indigo-900 dark:text-indigo-200 text-xs">
+                        <strong className="text-indigo-700 dark:text-indigo-300 uppercase text-[9px] block mb-0.5 font-bold">Recommendation:</strong>
+                        {rev.scoreDetail.recommendation}
+                      </div>
                     </div>
 
                   </div>
@@ -643,12 +688,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* TAB 3: SKILL GAPS */}
         {activeTab === 'skill-gaps' && (
           <div className="space-y-6 animate-fade-in" id="tab-content-skill-gaps">
-            <div className="bg-zinc-900/40 p-6 rounded-3xl border border-white/10 space-y-4">
+            <div className="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 space-y-4 shadow-xs">
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-2">
-                  <Target className="w-4 h-4 text-emerald-400" /> Target Role Skill-Gap Audit
+                <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white flex items-center gap-2">
+                  <Target className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Target Role Skill-Gap Audit
                 </h3>
-                <p className="text-xs text-zinc-400 mt-1">Deep analysis comparing profile technical tags against standard senior full stack engineering targets.</p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Deep analysis comparing profile technical tags against standard senior full stack engineering targets.</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -656,36 +701,37 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                   const isMatched = gap.status === 'Matched';
                   const isInProgress = gap.status.includes('Progress');
                   return (
-                    <div key={index} className="p-4 bg-zinc-900/60 rounded-2xl border border-white/10 space-y-3">
+                    <div key={index} className="p-4 sm:p-5 bg-zinc-50/70 dark:bg-zinc-950 rounded-xl border border-zinc-200/80 dark:border-zinc-800 space-y-3 shadow-2xs">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold uppercase tracking-wider text-white">{gap.skill}</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">{gap.skill}</span>
                         <span className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
-                          isMatched ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
-                          isInProgress ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20' :
-                          'bg-red-500/10 text-red-400 border border-red-500/20'
+                          isMatched ? 'bg-emerald-50 text-emerald-800 border border-emerald-200 dark:bg-emerald-950 dark:text-emerald-400 dark:border-emerald-800' :
+                          isInProgress ? 'bg-indigo-50 text-indigo-800 border border-indigo-200 dark:bg-indigo-950 dark:text-indigo-400 dark:border-indigo-800' :
+                          'bg-red-50 text-red-800 border border-red-200 dark:bg-red-950 dark:text-red-400 dark:border-red-800'
                         }`}>
                           {gap.status}
                         </span>
                       </div>
 
                       {/* AI Audit Report block */}
-                      <div className="p-3.5 bg-black/35 rounded-xl text-xs space-y-2">
-                        <p className="text-zinc-300">
-                          <strong className="text-white">Reason:</strong> {gap.scoreDetail.reason}
+                      <div className="p-3.5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200/80 dark:border-zinc-800 text-xs space-y-2 shadow-2xs">
+                        <p className="text-zinc-700 dark:text-zinc-300">
+                          <strong className="text-zinc-900 dark:text-white">Reason:</strong> {gap.scoreDetail.reason}
                         </p>
                         
-                        <p className="text-zinc-400 italic border-l border-indigo-500/30 pl-2 text-[11px]">
-                          <strong className="text-zinc-300 font-medium not-italic">Evidence:</strong> "{gap.scoreDetail.evidence}"
+                        <p className="text-zinc-600 dark:text-zinc-400 italic border-l-2 border-indigo-400 pl-2 text-[11px]">
+                          <strong className="text-zinc-700 dark:text-zinc-300 font-medium not-italic">Evidence:</strong> "{gap.scoreDetail.evidence}"
                         </p>
 
                         <div className="flex items-center gap-1 text-[10px] text-zinc-500">
-                          <strong className="text-zinc-400">Model Confidence:</strong>
-                          <span className="font-mono text-zinc-300">{(gap.scoreDetail.confidence * 100).toFixed(0)}%</span>
+                          <strong className="text-zinc-600 dark:text-zinc-400">Model Confidence:</strong>
+                          <span className="font-mono text-zinc-700 dark:text-zinc-300">{(gap.scoreDetail.confidence * 100).toFixed(0)}%</span>
                         </div>
 
-                        <p className="text-indigo-200 text-[11px] leading-tight">
-                          <strong className="text-indigo-300">Recommendation:</strong> {gap.scoreDetail.recommendation}
-                        </p>
+                        <div className="p-2.5 bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200/70 dark:border-indigo-900/50 rounded-lg text-indigo-900 dark:text-indigo-200 text-xs">
+                          <strong className="text-indigo-700 dark:text-indigo-300 uppercase text-[9px] block mb-0.5 font-bold">Recommendation:</strong>
+                          {gap.scoreDetail.recommendation}
+                        </div>
                       </div>
                     </div>
                   );
@@ -698,47 +744,48 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* TAB 4: INTERVIEW PROGRESS */}
         {activeTab === 'interview-progress' && (
           <div className="space-y-6 animate-fade-in" id="tab-content-interview-progress">
-            <div className="bg-zinc-900/40 p-6 rounded-3xl border border-white/10 space-y-4">
+            <div className="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 space-y-4 shadow-xs">
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-2">
-                  <Mic className="w-4 h-4 text-indigo-400" /> Conversational Answer Analytics
+                <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white flex items-center gap-2">
+                  <Mic className="w-4 h-4 text-indigo-600 dark:text-indigo-400" /> Conversational Answer Analytics
                 </h3>
-                <p className="text-xs text-zinc-400 mt-1">Multi-dimensional rating matrix computed using real mock response speech transcript analysis.</p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Multi-dimensional rating matrix computed using real mock response speech transcript analysis.</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {interviewDimensions.map((dim, index) => {
                   const Icon = dim.icon;
                   return (
-                    <div key={index} className="p-4 bg-zinc-900/60 rounded-2xl border border-white/10 space-y-3">
+                    <div key={index} className="p-4 sm:p-5 bg-zinc-50/70 dark:bg-zinc-950 rounded-xl border border-zinc-200/80 dark:border-zinc-800 space-y-3 shadow-2xs">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="p-1.5 bg-white/5 rounded-lg border border-white/10 text-indigo-400">
+                          <span className="p-1.5 bg-indigo-50 dark:bg-indigo-950/60 rounded-lg border border-indigo-200/80 dark:border-indigo-800/60 text-indigo-600 dark:text-indigo-400">
                             <Icon className="w-4 h-4" />
                           </span>
-                          <span className="text-xs font-bold uppercase tracking-wider text-white">{dim.name}</span>
+                          <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">{dim.name}</span>
                         </div>
-                        <span className="text-sm font-mono font-bold text-indigo-400">{dim.score}%</span>
+                        <span className="text-sm font-mono font-bold text-indigo-600 dark:text-indigo-400">{dim.score}%</span>
                       </div>
 
                       {/* AI Audit Report block */}
-                      <div className="p-3.5 bg-black/35 rounded-xl text-xs space-y-2">
-                        <p className="text-zinc-300">
-                          <strong className="text-white">Reason:</strong> {dim.detail.reason}
+                      <div className="p-3.5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200/80 dark:border-zinc-800 text-xs space-y-2 shadow-2xs">
+                        <p className="text-zinc-700 dark:text-zinc-300">
+                          <strong className="text-zinc-900 dark:text-white">Reason:</strong> {dim.detail.reason}
                         </p>
                         
-                        <p className="text-zinc-400 italic border-l border-indigo-500/30 pl-2 text-[11px]">
-                          <strong className="text-zinc-300 font-medium not-italic">Evidence:</strong> "{dim.detail.evidence}"
+                        <p className="text-zinc-600 dark:text-zinc-400 italic border-l-2 border-indigo-400 pl-2 text-[11px]">
+                          <strong className="text-zinc-700 dark:text-zinc-300 font-medium not-italic">Evidence:</strong> "{dim.detail.evidence}"
                         </p>
 
                         <div className="flex items-center gap-1 text-[10px] text-zinc-500">
-                          <strong className="text-zinc-400">Evaluation Confidence:</strong>
-                          <span className="font-mono text-zinc-300">{(dim.detail.confidence * 100).toFixed(0)}%</span>
+                          <strong className="text-zinc-600 dark:text-zinc-400">Evaluation Confidence:</strong>
+                          <span className="font-mono text-zinc-700 dark:text-zinc-300">{(dim.detail.confidence * 100).toFixed(0)}%</span>
                         </div>
 
-                        <p className="text-indigo-200 text-[11px] leading-tight">
-                          <strong className="text-indigo-300">Recommendation:</strong> {dim.detail.recommendation}
-                        </p>
+                        <div className="p-2.5 bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200/70 dark:border-indigo-900/50 rounded-lg text-indigo-900 dark:text-indigo-200 text-xs">
+                          <strong className="text-indigo-700 dark:text-indigo-300 uppercase text-[9px] block mb-0.5 font-bold">Recommendation:</strong>
+                          {dim.detail.recommendation}
+                        </div>
                       </div>
                     </div>
                   );
@@ -751,35 +798,36 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* TAB 5: CAREER READINESS */}
         {activeTab === 'career-readiness' && (
           <div className="space-y-6 animate-fade-in" id="tab-content-career-readiness">
-            <div className="bg-zinc-900/40 p-6 rounded-3xl border border-white/10 space-y-4">
+            <div className="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 space-y-5 shadow-xs">
               <div className="flex flex-col md:flex-row items-center gap-6">
                 
                 {/* Circular readiness progress meter */}
-                <div className="relative w-40 h-40 shrink-0 flex items-center justify-center">
+                <div className="relative w-36 h-36 shrink-0 flex items-center justify-center">
                   <svg className="w-full h-full transform -rotate-90">
-                    <circle cx="80" cy="80" r="70" className="stroke-white/5" strokeWidth="8" fill="transparent" />
+                    <circle cx="72" cy="72" r="60" className="stroke-zinc-100 dark:stroke-zinc-800" strokeWidth="8" fill="transparent" />
                     <circle
-                      cx="80"
-                      cy="80"
-                      r="70"
-                      className="stroke-indigo-500 transition-all duration-1000"
+                      cx="72"
+                      cy="72"
+                      r="60"
+                      className="stroke-indigo-600 dark:stroke-indigo-400 transition-all duration-1000"
                       strokeWidth="8"
+                      strokeLinecap="round"
                       fill="transparent"
-                      strokeDasharray={440}
-                      strokeDashoffset={440 - (440 * careerReadinessDetail.score) / 100}
+                      strokeDasharray={377}
+                      strokeDashoffset={377 - (377 * careerReadinessDetail.score) / 100}
                     />
                   </svg>
                   <div className="absolute text-center">
-                    <span className="text-3xl font-black text-white tracking-tight">{careerReadinessDetail.score}%</span>
-                    <span className="text-[10px] text-zinc-500 block uppercase font-bold tracking-wider">Maturity Index</span>
+                    <span className="text-3xl font-black text-zinc-900 dark:text-white tracking-tight">{careerReadinessDetail.score}%</span>
+                    <span className="text-[10px] text-zinc-500 dark:text-zinc-400 block uppercase font-bold tracking-wider">Maturity Index</span>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-2">
-                    <Award className="w-4.5 h-4.5 text-indigo-400" /> Overall Technical Role Readiness
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white flex items-center gap-2">
+                    <Award className="w-4.5 h-4.5 text-indigo-600 dark:text-indigo-400" /> Overall Technical Role Readiness
                   </h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
                     Our AI models compute this readiness percentage by running a multi-dimensional analysis on your formatting compliance, verbal articulation averages, and technical keyword density matches.
                   </p>
                 </div>
@@ -787,24 +835,24 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               </div>
 
               {/* Complete AI Insight details containing Reason, Evidence, Confidence, Recommendation */}
-              <div className="p-4 bg-zinc-900/60 rounded-2xl border border-white/10 space-y-3">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-400 block">✓ Executive Readiness Audit</span>
+              <div className="p-4 sm:p-5 bg-zinc-50/70 dark:bg-zinc-950 rounded-xl border border-zinc-200/80 dark:border-zinc-800 space-y-3 shadow-2xs">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-700 dark:text-indigo-300 block">✓ Executive Readiness Audit</span>
                 
-                <p className="text-xs text-zinc-300 leading-relaxed">
-                  <strong className="text-white">Reason:</strong> {careerReadinessDetail.reason}
+                <p className="text-xs text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                  <strong className="text-zinc-900 dark:text-white">Reason:</strong> {careerReadinessDetail.reason}
                 </p>
 
-                <p className="text-xs text-zinc-400 leading-relaxed italic border-l border-indigo-500/30 pl-3">
-                  <strong className="text-zinc-300 font-medium not-italic">Evidence:</strong> "{careerReadinessDetail.evidence}"
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed italic border-l-2 border-indigo-400 pl-3">
+                  <strong className="text-zinc-700 dark:text-zinc-300 font-medium not-italic">Evidence:</strong> "{careerReadinessDetail.evidence}"
                 </p>
 
                 <div className="flex items-center gap-1 text-[10px] text-zinc-500">
-                  <strong className="text-zinc-400">Confidence Metric:</strong>
-                  <span className="px-1.5 py-0.5 bg-indigo-500/10 text-indigo-300 rounded font-mono">{(careerReadinessDetail.confidence * 100).toFixed(0)}%</span>
+                  <strong className="text-zinc-600 dark:text-zinc-400">Confidence Metric:</strong>
+                  <span className="px-1.5 py-0.5 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 rounded font-mono">{(careerReadinessDetail.confidence * 100).toFixed(0)}%</span>
                 </div>
 
-                <div className="p-3 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-xs text-indigo-200">
-                  <strong className="text-indigo-300 uppercase text-[9px] block mb-0.5 font-bold">Actionable Strategy Recommendation:</strong>
+                <div className="p-3 bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200/70 dark:border-indigo-900/50 rounded-xl text-xs text-indigo-900 dark:text-indigo-200">
+                  <strong className="text-indigo-700 dark:text-indigo-300 uppercase text-[9px] block mb-0.5 font-bold">Actionable Strategy Recommendation:</strong>
                   {careerReadinessDetail.recommendation}
                 </div>
               </div>
@@ -815,46 +863,47 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* TAB 6: JOB HISTORY */}
         {activeTab === 'job-history' && (
           <div className="space-y-6 animate-fade-in" id="tab-content-job-history">
-            <div className="bg-zinc-900/40 p-6 rounded-3xl border border-white/10 space-y-4">
+            <div className="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 space-y-4 shadow-xs">
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-2">
-                  <Briefcase className="w-4 h-4 text-indigo-400" /> Historic Job Matches
+                <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white flex items-center gap-2">
+                  <Briefcase className="w-4 h-4 text-indigo-600 dark:text-indigo-400" /> Historic Job Matches
                 </h3>
-                <p className="text-xs text-zinc-400 mt-1">Audit trail tracking previous match analyses with specific semantic indicators.</p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Audit trail tracking previous match analyses with specific semantic indicators.</p>
               </div>
 
               <div className="space-y-4">
                 {jobMatchHistory.map((match, index) => (
-                  <div key={index} className="p-4 bg-zinc-900/60 rounded-2xl border border-white/10 space-y-3">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-2">
+                  <div key={index} className="p-4 sm:p-5 bg-zinc-50/70 dark:bg-zinc-950 rounded-xl border border-zinc-200/80 dark:border-zinc-800 space-y-3 shadow-2xs">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200/80 dark:border-zinc-800 pb-2.5">
                       <div>
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-white">{match.role}</h4>
-                        <span className="text-[10px] text-zinc-500">{match.company} • {match.techMatch}</span>
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">{match.role}</h4>
+                        <span className="text-[10px] text-zinc-500 dark:text-zinc-400">{match.company} • {match.techMatch}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] px-2.5 py-0.5 bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 font-mono rounded-full">{match.estSalary}</span>
-                        <span className="text-xs font-bold text-indigo-400">{match.matchScore}% Compatibility</span>
+                        <span className="text-[10px] px-2.5 py-0.5 bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/80 dark:border-indigo-800/60 text-indigo-700 dark:text-indigo-300 font-mono rounded-full">{match.estSalary}</span>
+                        <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">{match.matchScore}% Compatibility</span>
                       </div>
                     </div>
 
                     {/* Grounded AI Rationale block */}
-                    <div className="p-3.5 bg-black/35 rounded-xl text-xs space-y-2">
-                      <p className="text-zinc-300">
-                        <strong className="text-white">Reason:</strong> {match.scoreDetail.reason}
+                    <div className="p-3.5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200/80 dark:border-zinc-800 text-xs space-y-2 shadow-2xs">
+                      <p className="text-zinc-700 dark:text-zinc-300">
+                        <strong className="text-zinc-900 dark:text-white">Reason:</strong> {match.scoreDetail.reason}
                       </p>
                       
-                      <p className="text-zinc-400 italic border-l border-indigo-500/30 pl-2 text-[11px]">
-                        <strong className="text-zinc-300 font-medium not-italic">Evidence:</strong> "{match.scoreDetail.evidence}"
+                      <p className="text-zinc-600 dark:text-zinc-400 italic border-l-2 border-indigo-400 pl-2 text-[11px]">
+                        <strong className="text-zinc-700 dark:text-zinc-300 font-medium not-italic">Evidence:</strong> "{match.scoreDetail.evidence}"
                       </p>
 
                       <div className="flex items-center gap-1 text-[10px] text-zinc-500">
-                        <strong className="text-zinc-400">Match Confidence:</strong>
-                        <span className="font-mono text-zinc-300">{(match.scoreDetail.confidence * 100).toFixed(0)}%</span>
+                        <strong className="text-zinc-600 dark:text-zinc-400">Match Confidence:</strong>
+                        <span className="font-mono text-zinc-700 dark:text-zinc-300">{(match.scoreDetail.confidence * 100).toFixed(0)}%</span>
                       </div>
 
-                      <p className="text-indigo-200 text-[11px] leading-tight">
-                        <strong className="text-indigo-300">Recommendation:</strong> {match.scoreDetail.recommendation}
-                      </p>
+                      <div className="p-2.5 bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200/70 dark:border-indigo-900/50 rounded-lg text-indigo-900 dark:text-indigo-200 text-xs">
+                        <strong className="text-indigo-700 dark:text-indigo-300 uppercase text-[9px] block mb-0.5 font-bold">Recommendation:</strong>
+                        {match.scoreDetail.recommendation}
+                      </div>
                     </div>
 
                   </div>
@@ -867,12 +916,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         {/* TAB 7: LEARNING */}
         {activeTab === 'learning' && (
           <div className="space-y-6 animate-fade-in" id="tab-content-learning">
-            <div className="bg-zinc-900/40 p-6 rounded-3xl border border-white/10 space-y-4">
+            <div className="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 space-y-4 shadow-xs">
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-emerald-400" /> Learning Path & Roadmap Progress
+                <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Learning Path & Roadmap Progress
                 </h3>
-                <p className="text-xs text-zinc-400 mt-1">Checklist progress against modern full-stack development and GenAI pipelines.</p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Checklist progress against modern full-stack development and GenAI pipelines.</p>
               </div>
 
               <div className="space-y-4">
@@ -880,32 +929,32 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                   const isActive = milestone.status === 'Active';
                   const isCompleted = milestone.status === 'Completed';
                   return (
-                    <div key={index} className="p-4 bg-zinc-900/60 rounded-2xl border border-white/10 space-y-3">
+                    <div key={index} className="p-4 sm:p-5 bg-zinc-50/70 dark:bg-zinc-950 rounded-xl border border-zinc-200/80 dark:border-zinc-800 space-y-3 shadow-2xs">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold uppercase tracking-wider text-white">{milestone.month}</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-white">{milestone.month}</span>
                         <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
-                          isCompleted ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
-                          isActive ? 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/20' :
-                          'bg-zinc-800 text-zinc-500 border border-white/5'
+                          isCompleted ? 'bg-emerald-50 text-emerald-800 border border-emerald-200 dark:bg-emerald-950 dark:text-emerald-400 dark:border-emerald-800' :
+                          isActive ? 'bg-indigo-50 text-indigo-800 border border-indigo-200 dark:bg-indigo-950 dark:text-indigo-400 dark:border-indigo-800' :
+                          'bg-zinc-100 text-zinc-600 border border-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:border-zinc-700'
                         }`}>
                           {milestone.status}
                         </span>
                       </div>
 
                       <div className="space-y-2">
-                        <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider">Milestone Syllabus:</span>
+                        <span className="text-[10px] uppercase font-bold text-zinc-500 dark:text-zinc-400 tracking-wider">Milestone Syllabus:</span>
                         <div className="flex flex-wrap gap-1.5">
                           {milestone.topics.map((topic, tIdx) => (
-                            <span key={tIdx} className="text-[10px] px-2.5 py-0.5 bg-black/40 border border-white/10 rounded-full text-zinc-300 font-mono">
+                            <span key={tIdx} className="text-[10px] px-2.5 py-0.5 bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-mono shadow-2xs">
                               {topic}
                             </span>
                           ))}
                         </div>
                       </div>
 
-                      <div className="p-3 bg-black/35 rounded-xl text-xs space-y-1.5">
-                        <strong className="text-indigo-300 block uppercase text-[9px] font-bold">Outcome & Achievement:</strong>
-                        <p className="text-zinc-300 leading-relaxed">{milestone.achievement}</p>
+                      <div className="p-3.5 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200/80 dark:border-zinc-800 text-xs space-y-1.5 shadow-2xs">
+                        <strong className="text-indigo-600 dark:text-indigo-400 block uppercase text-[9px] font-bold">Outcome & Achievement:</strong>
+                        <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{milestone.achievement}</p>
                       </div>
 
                     </div>

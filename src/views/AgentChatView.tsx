@@ -384,8 +384,8 @@ export const AgentChatView: React.FC = () => {
 
         {/* Suggested prompts (only show when no message or small chat) */}
         {messages.length <= 1 && (
-          <div className="p-4 sm:p-6 border-t border-white/10 bg-black/10">
-            <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+          <div className="p-4 sm:p-6 border-t border-zinc-200/80 dark:border-white/10 bg-zinc-50/50 dark:bg-black/10">
+            <p className="text-[11px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
               <HelpCircle className="w-3.5 h-3.5" /> Suggested Agent Instructions
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -393,12 +393,12 @@ export const AgentChatView: React.FC = () => {
                 <button
                   key={idx}
                   onClick={() => handleSend(sug.text)}
-                  className="p-3 text-left bg-white/5 border border-white/10 hover:bg-white/10 hover:border-indigo-500/30 rounded-2xl transition-all group"
+                  className="p-3 text-left bg-white dark:bg-white/5 border border-zinc-200/80 dark:border-white/10 hover:border-indigo-400/80 dark:hover:border-indigo-500/30 rounded-2xl transition-all group shadow-2xs"
                 >
-                  <p className="text-xs font-bold text-white group-hover:text-indigo-400 transition-colors">
+                  <p className="text-xs font-bold text-zinc-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                     {sug.title}
                   </p>
-                  <p className="text-[10px] text-zinc-500 line-clamp-1">
+                  <p className="text-[10px] text-zinc-500 dark:text-zinc-400 line-clamp-1">
                     {sug.text}
                   </p>
                 </button>
@@ -408,13 +408,13 @@ export const AgentChatView: React.FC = () => {
         )}
 
         {/* Input Form */}
-        <div className="p-4 border-t border-white/10 bg-black/40">
+        <div className="p-4 border-t border-zinc-200/80 dark:border-white/10 bg-white/80 dark:bg-black/40">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               handleSend();
             }}
-            className="relative flex items-center bg-[#0d0d0d] border border-white/10 focus-within:border-indigo-500/50 rounded-2xl px-4 py-2.5 transition-all"
+            className="relative flex items-center bg-zinc-50 dark:bg-[#0d0d0d] border border-zinc-300 dark:border-white/10 focus-within:border-indigo-500 rounded-2xl px-4 py-2.5 transition-all shadow-2xs"
           >
             <input
               type="text"
@@ -422,22 +422,22 @@ export const AgentChatView: React.FC = () => {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask the coordinator model anything (e.g., 'Compare my resume skills against standard Senior DevOps specifications')..."
               disabled={isSending}
-              className="flex-1 bg-transparent border-none text-xs sm:text-sm text-zinc-200 focus:outline-none focus:ring-0 placeholder-zinc-600 pr-10"
+              className="flex-1 bg-transparent border-none text-xs sm:text-sm text-zinc-900 dark:text-zinc-200 focus:outline-none focus:ring-0 placeholder-zinc-400 dark:placeholder-zinc-600 pr-10"
             />
             
             <div className="absolute right-3 flex items-center gap-2">
               {input.trim() && (
-                <span className="text-[9px] text-zinc-600 bg-zinc-900 border border-zinc-800 px-1.5 py-0.5 rounded font-mono hidden sm:inline-flex items-center gap-1">
+                <span className="text-[9px] text-zinc-500 dark:text-zinc-600 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-1.5 py-0.5 rounded font-mono hidden sm:inline-flex items-center gap-1 shadow-2xs">
                   Enter <CornerDownLeft className="w-2.5 h-2.5" />
                 </span>
               )}
               <button
                 type="submit"
                 disabled={!input.trim() || isSending}
-                className={`p-2 rounded-xl transition-all ${
+                className={`p-2 rounded-xl transition-all cursor-pointer ${
                   input.trim() && !isSending
-                    ? 'bg-indigo-600 text-white hover:bg-indigo-500'
-                    : 'text-zinc-600 cursor-not-allowed'
+                    ? 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-2xs'
+                    : 'text-zinc-400 dark:text-zinc-600 cursor-not-allowed'
                 }`}
               >
                 <Send className="w-4 h-4" />
@@ -449,37 +449,37 @@ export const AgentChatView: React.FC = () => {
 
       {/* In-app Toast Banner */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-zinc-900 border border-white/10 text-white px-4 py-2.5 rounded-2xl shadow-2xl flex items-center gap-2 text-xs font-medium animate-fadeIn">
-          <CheckCircle className="w-4 h-4 text-emerald-400" />
+        <div className="fixed bottom-6 right-6 z-50 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 text-xs font-medium animate-fadeIn">
+          <CheckCircle className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
           {toastMessage}
         </div>
       )}
 
       {/* Confirmation Modal for Clearing Entire Chat */}
       {showClearModal && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-zinc-900 border border-white/15 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 animate-scaleUp">
-            <div className="flex items-center gap-3 text-red-400">
-              <div className="p-2 bg-red-500/10 border border-red-500/20 rounded-2xl">
+        <div className="fixed inset-0 z-50 bg-black/50 dark:bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-white/15 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 animate-scaleUp">
+            <div className="flex items-center gap-3 text-red-500 dark:text-red-400">
+              <div className="p-2 bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 rounded-2xl">
                 <Trash2 className="w-5 h-5" />
               </div>
-              <h3 className="text-lg font-bold text-white">Clear Conversation History?</h3>
+              <h3 className="text-lg font-bold text-zinc-900 dark:text-white">Clear Conversation History?</h3>
             </div>
             
-            <p className="text-xs text-zinc-400 leading-relaxed">
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
               This will remove all user prompts, reasoning cycles, and tool execution logs from this chat session and reset to the initial coordinator prompt.
             </p>
 
             <div className="flex items-center justify-end gap-3 pt-2">
               <button
                 onClick={() => setShowClearModal(false)}
-                className="px-4 py-2 text-xs font-semibold text-zinc-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                className="px-4 py-2 text-xs font-semibold text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-white/5 rounded-xl transition-all"
               >
                 Cancel
               </button>
               <button
                 onClick={confirmClearChat}
-                className="px-4 py-2 text-xs font-bold text-white bg-red-600 hover:bg-red-500 rounded-xl transition-all shadow-lg shadow-red-600/30 flex items-center gap-1.5"
+                className="px-4 py-2 text-xs font-bold text-white bg-red-600 hover:bg-red-700 rounded-xl transition-all shadow-md shadow-red-600/20 flex items-center gap-1.5"
               >
                 <Trash2 className="w-3.5 h-3.5" /> Clear History
               </button>

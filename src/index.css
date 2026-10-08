@@ -1,141 +1,389 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   html, body {
+    background-color: #F7F8FA;
+    color: #111827;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color-scheme: light;
+  }
+
+  html.dark, html.dark body {
     background-color: #09090b;
     color: #f4f4f5;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color-scheme: dark;
   }
 }
 
-.bg-editorial-dark {
-  background-color: #09090b;
+/* ==========================================================================
+   LIGHT MODE DESIGN SPECIFICATION (Primary Sklor-Inspired Visual Experience)
+   ========================================================================== */
+
+html:not(.dark) {
+  --bg-app: #F7F8FA;
+  --bg-card: #FFFFFF;
+  --bg-subcard: #F8FAFC;
+  --border-card: #E5E7EB;
+  --border-subcard: #E2E8F0;
+  --text-primary: #111827;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
 }
 
-.bg-editorial-card {
-  background-color: #121215;
-  border: 1px solid #27272a;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.4);
+/* Editorial & Root Card Styling */
+html:not(.dark) .bg-editorial-dark {
+  background-color: #F7F8FA !important;
 }
 
-.editorial-badge {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 10px;
-  font-weight: 700;
+html:not(.dark) .bg-editorial-card,
+html:not(.dark) main .bg-editorial-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 18px !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05) !important;
+  color: #111827 !important;
+}
+
+/* Transform Dark Cards into Crisp White Light Cards */
+html:not(.dark) main .bg-zinc-900,
+html:not(.dark) main .bg-zinc-900\/40,
+html:not(.dark) main .bg-zinc-900\/50,
+html:not(.dark) main .bg-zinc-900\/60,
+html:not(.dark) main .bg-zinc-900\/70,
+html:not(.dark) main .bg-zinc-900\/80,
+html:not(.dark) main .bg-zinc-900\/90,
+html:not(.dark) main .bg-zinc-950,
+html:not(.dark) main .bg-zinc-950\/60,
+html:not(.dark) main .bg-zinc-950\/70,
+html:not(.dark) main .bg-zinc-950\/80,
+html:not(.dark) main .bg-slate-900,
+html:not(.dark) main .bg-slate-900\/90,
+html:not(.dark) main .bg-slate-900\/80,
+html:not(.dark) main .bg-slate-900\/60,
+html:not(.dark) main .bg-slate-900\/40,
+html:not(.dark) main .bg-slate-950,
+html:not(.dark) main .bg-slate-950\/80,
+html:not(.dark) main .bg-black\/30,
+html:not(.dark) main .bg-black\/40,
+html:not(.dark) main .bg-black\/50,
+html:not(.dark) main .bg-black\/60,
+html:not(.dark) main .bg-black\/70 {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  color: #111827 !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04) !important;
+}
+
+/* Sub-containers, list items & sub-panels in Light Mode */
+html:not(.dark) main .bg-zinc-800,
+html:not(.dark) main .bg-zinc-800\/40,
+html:not(.dark) main .bg-zinc-800\/50,
+html:not(.dark) main .bg-zinc-800\/60,
+html:not(.dark) main .bg-zinc-800\/70,
+html:not(.dark) main .bg-zinc-800\/80,
+html:not(.dark) main .bg-zinc-850,
+html:not(.dark) main .bg-slate-800,
+html:not(.dark) main .bg-slate-800\/80,
+html:not(.dark) main .bg-slate-800\/60,
+html:not(.dark) main .bg-cyan-950,
+html:not(.dark) main .bg-cyan-950\/80,
+html:not(.dark) main .bg-purple-950,
+html:not(.dark) main .bg-emerald-950,
+html:not(.dark) main .bg-emerald-950\/80,
+html:not(.dark) main .bg-amber-950,
+html:not(.dark) main .bg-amber-950\/80,
+html:not(.dark) main .bg-red-950,
+html:not(.dark) main .bg-black\/10,
+html:not(.dark) main .bg-black\/20,
+html:not(.dark) main .bg-black\/25,
+html:not(.dark) main .bg-black\/35 {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+  color: #1E293B !important;
+}
+
+/* Borders in Light Mode */
+html:not(.dark) main .border-white\/5,
+html:not(.dark) main .border-white\/10,
+html:not(.dark) main .border-white\/15,
+html:not(.dark) main .border-white\/20,
+html:not(.dark) main .border-zinc-800,
+html:not(.dark) main .border-zinc-800\/50,
+html:not(.dark) main .border-zinc-800\/60,
+html:not(.dark) main .border-zinc-800\/80,
+html:not(.dark) main .border-zinc-700,
+html:not(.dark) main .border-zinc-700\/50,
+html:not(.dark) main .border-zinc-700\/60,
+html:not(.dark) main .border-zinc-700\/80,
+html:not(.dark) main .border-slate-900,
+html:not(.dark) main .border-slate-800,
+html:not(.dark) main .border-slate-800\/80,
+html:not(.dark) main .border-slate-800\/60,
+html:not(.dark) main .border-slate-700,
+html:not(.dark) main .border-slate-700\/60,
+html:not(.dark) main .border-cyan-800,
+html:not(.dark) main .border-cyan-900\/40 {
+  border-color: #E5E7EB !important;
+}
+
+/* Text hierarchy in Light Mode */
+html:not(.dark) main .text-white {
+  color: #0F172A !important;
+}
+
+html:not(.dark) main .text-zinc-100,
+html:not(.dark) main .text-zinc-200,
+html:not(.dark) main .text-slate-100,
+html:not(.dark) main .text-slate-200 {
+  color: #1E293B !important;
+}
+
+html:not(.dark) main .text-zinc-300,
+html:not(.dark) main .text-slate-300 {
+  color: #334155 !important;
+}
+
+html:not(.dark) main .text-zinc-400,
+html:not(.dark) main .text-slate-400 {
+  color: #64748B !important;
+}
+
+html:not(.dark) main .text-zinc-500,
+html:not(.dark) main .text-slate-500,
+html:not(.dark) main .text-slate-600 {
+  color: #64748B !important;
+}
+
+html:not(.dark) main .text-cyan-400,
+html:not(.dark) main .text-cyan-300 {
+  color: #0284C7 !important;
+}
+
+html:not(.dark) main .text-purple-300,
+html:not(.dark) main .text-purple-400 {
+  color: #7C3AED !important;
+}
+
+html:not(.dark) main .text-zinc-500 {
+  color: #64748B !important;
+}
+
+/* Keep white text on solid colored buttons in Light Mode */
+html:not(.dark) button.bg-indigo-600,
+html:not(.dark) button.bg-indigo-600 *,
+html:not(.dark) .bg-indigo-600.text-white,
+html:not(.dark) button.bg-emerald-600,
+html:not(.dark) button.bg-emerald-600 *,
+html:not(.dark) button.bg-red-600,
+html:not(.dark) button.bg-red-600 *,
+html:not(.dark) a.bg-indigo-600,
+html:not(.dark) a.bg-indigo-600 * {
+  color: #FFFFFF !important;
+}
+
+/* Form Inputs & Controls in Light Mode */
+html:not(.dark) main input,
+html:not(.dark) main textarea,
+html:not(.dark) main select {
+  background-color: #FFFFFF !important;
+  border: 1px solid #D1D5DB !important;
+  color: #111827 !important;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
+}
+
+html:not(.dark) main input::placeholder,
+html:not(.dark) main textarea::placeholder {
+  color: #9CA3AF !important;
+}
+
+html:not(.dark) main input:focus,
+html:not(.dark) main textarea:focus,
+html:not(.dark) main select:focus {
+  border-color: #4F46E5 !important;
+  outline: 2px solid rgba(79, 70, 229, 0.15) !important;
+}
+
+/* Accent Badges in Light Mode */
+html:not(.dark) main .bg-indigo-500\/10,
+html:not(.dark) main .bg-indigo-500\/15,
+html:not(.dark) main .bg-indigo-500\/20,
+html:not(.dark) main .bg-indigo-950\/60 {
+  background-color: #EEF2FF !important;
+  color: #4338CA !important;
+  border-color: #C7D2FE !important;
+}
+
+html:not(.dark) main .text-indigo-300,
+html:not(.dark) main .text-indigo-400 {
+  color: #4338CA !important;
+}
+
+html:not(.dark) main .bg-emerald-500\/10,
+html:not(.dark) main .bg-emerald-500\/15,
+html:not(.dark) main .bg-emerald-500\/20,
+html:not(.dark) main .bg-emerald-950\/60 {
+  background-color: #ECFDF5 !important;
+  color: #065F46 !important;
+  border-color: #A7F3D0 !important;
+}
+
+html:not(.dark) main .text-emerald-300,
+html:not(.dark) main .text-emerald-400 {
+  color: #059669 !important;
+}
+
+html:not(.dark) main .bg-amber-500\/10,
+html:not(.dark) main .bg-amber-500\/15,
+html:not(.dark) main .bg-amber-500\/20,
+html:not(.dark) main .bg-amber-950\/60 {
+  background-color: #FFFBEB !important;
+  color: #92400E !important;
+  border-color: #FDE68A !important;
+}
+
+html:not(.dark) main .text-amber-300,
+html:not(.dark) main .text-amber-400 {
+  color: #D97706 !important;
+}
+
+html:not(.dark) main .bg-red-500\/10,
+html:not(.dark) main .bg-red-500\/15,
+html:not(.dark) main .bg-red-500\/20,
+html:not(.dark) main .bg-red-950\/60 {
+  background-color: #FEF2F2 !important;
+  color: #991B1B !important;
+  border-color: #FECACA !important;
+}
+
+/* Dashboard Tab Controls in Light Mode */
+html:not(.dark) #dashboard-tab-navigation button.border-indigo-600,
+html:not(.dark) #dashboard-tab-navigation button.border-indigo-500 {
+  background-color: #EEF2FF !important;
+  color: #4338CA !important;
+  border-color: #4F46E5 !important;
+}
+
+html:not(.dark) #dashboard-tab-navigation button:not(.border-indigo-600):not(.border-indigo-500) {
+  color: #64748B !important;
+}
+
+html:not(.dark) #dashboard-tab-navigation button:not(.border-indigo-600):not(.border-indigo-500):hover {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+/* Recharts Polish in Light Mode */
+html:not(.dark) .recharts-cartesian-grid line {
+  stroke: #E5E7EB !important;
+}
+
+html:not(.dark) .recharts-text {
+  fill: #64748B !important;
+  font-size: 11px !important;
+}
+
+html:not(.dark) .recharts-polar-grid line,
+html:not(.dark) .recharts-polar-grid-angle line,
+html:not(.dark) .recharts-polar-grid-concentric polygon {
+  stroke: #E5E7EB !important;
+}
+
+html:not(.dark) .recharts-default-tooltip {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  color: #111827 !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+  border-radius: 12px !important;
 }
 
 /* ==========================================================================
-   PURE DARK MODE ENGINE & CONTRAST SPECS
+   DARK MODE ENGINE (Preserves Existing Dark Theme Exactly)
    ========================================================================== */
 
-main .bg-editorial-card {
+html.dark main .bg-editorial-card {
   background-color: #121215;
   border-color: #27272a;
   color: #f4f4f5;
 }
 
-/* Inner list items & nested dark sub-containers */
-main .bg-black\/30,
-main .bg-black\/35,
-main .bg-black\/40,
-main .bg-black\/60 {
+html.dark main .bg-black\/30,
+html.dark main .bg-black\/35,
+html.dark main .bg-black\/40,
+html.dark main .bg-black\/60 {
   background-color: #18181b;
   border-color: #27272a;
   color: #e4e4e7;
 }
 
-/* Inputs & Form Controls */
-main input, main textarea, main select {
+html.dark main input,
+html.dark main textarea,
+html.dark main select {
   background-color: #18181b !important;
   border: 1px solid #27272a !important;
   color: #ffffff !important;
 }
 
-main input::placeholder, main textarea::placeholder {
+html.dark main input::placeholder,
+html.dark main textarea::placeholder {
   color: #71717a !important;
 }
 
-/* Badges */
-main .bg-indigo-500\/10,
-main .bg-indigo-500\/15,
-main .bg-indigo-500\/20 {
+html.dark main .bg-indigo-500\/10,
+html.dark main .bg-indigo-500\/15,
+html.dark main .bg-indigo-500\/20 {
   background-color: rgba(99, 102, 241, 0.15) !important;
   color: #a5b4fc !important;
   border-color: rgba(99, 102, 241, 0.3) !important;
 }
 
-main .text-indigo-300,
-main .text-indigo-400 {
+html.dark main .text-indigo-300,
+html.dark main .text-indigo-400 {
   color: #a5b4fc !important;
 }
 
-main .bg-emerald-500\/10,
-main .bg-emerald-500\/15,
-main .bg-emerald-500\/20 {
+html.dark main .bg-emerald-500\/10,
+html.dark main .bg-emerald-500\/15,
+html.dark main .bg-emerald-500\/20 {
   background-color: rgba(16, 185, 129, 0.15) !important;
   color: #6ee7b7 !important;
   border-color: rgba(16, 185, 129, 0.3) !important;
 }
 
-main .text-emerald-300,
-main .text-emerald-400 {
+html.dark main .text-emerald-300,
+html.dark main .text-emerald-400 {
   color: #6ee7b7 !important;
 }
 
-main .bg-amber-500\/10,
-main .bg-amber-500\/15,
-main .bg-amber-500\/20 {
+html.dark main .bg-amber-500\/10,
+html.dark main .bg-amber-500\/15,
+html.dark main .bg-amber-500\/20 {
   background-color: rgba(245, 158, 11, 0.15) !important;
   color: #fcd34d !important;
   border-color: rgba(245, 158, 11, 0.3) !important;
 }
 
-main .text-amber-300,
-main .text-amber-400 {
+html.dark main .text-amber-300,
+html.dark main .text-amber-400 {
   color: #fcd34d !important;
 }
 
-/* Dashboard Tab Controls */
-#dashboard-tab-navigation button.border-indigo-500 {
-  border-color: #6366f1;
-}
-
-html:not(.dark) #dashboard-tab-navigation button.border-indigo-500 {
-  background-color: #eef2ff;
-  color: #4f46e5;
-  border-radius: 8px;
-}
-
-html.dark #dashboard-tab-navigation button.border-indigo-500 {
+html.dark #dashboard-tab-navigation button.border-indigo-500,
+html.dark #dashboard-tab-navigation button.border-indigo-600 {
   background-color: rgba(99, 102, 241, 0.2);
   color: #a5b4fc;
-  border-radius: 8px;
 }
 
-html:not(.dark) #dashboard-tab-navigation button:not(.border-indigo-500) {
-  color: #57534e;
-}
-
-html.dark #dashboard-tab-navigation button:not(.border-indigo-500) {
+html.dark #dashboard-tab-navigation button:not(.border-indigo-500):not(.border-indigo-600) {
   color: #a1a1aa;
 }
 
-/* Spacing and layout refinements */
-main .space-y-6 > * {
-  margin-top: 1.75rem;
-  margin-bottom: 1.75rem;
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-main .p-6, main .sm\:p-8 {
-  padding: 1.75rem;
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
-main .rounded-3xl {
-  border-radius: 20px;
-}
-
-
-

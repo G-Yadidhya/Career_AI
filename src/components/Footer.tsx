@@ -3,7 +3,7 @@ import { ShieldCheck, Cpu, Database, CheckCircle, Terminal } from 'lucide-react'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-zinc-100 dark:bg-[#050505] border-t border-zinc-200 dark:border-white/10 text-zinc-600 dark:text-zinc-400 text-xs py-8 transition-colors duration-200">
+    <footer className="bg-white dark:bg-[#050505] border-t border-zinc-200 dark:border-white/10 text-zinc-600 dark:text-zinc-400 text-xs py-8 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
 
           <div className="space-y-2">
             <h4 className="font-bold text-zinc-800 dark:text-zinc-300 text-xs uppercase tracking-widest">Runtime Specs</h4>
-            <div className="bg-white dark:bg-white/5 p-3 rounded-2xl border border-zinc-200 dark:border-white/10 space-y-1 font-mono text-[10px]">
+            <div className="bg-zinc-50 dark:bg-white/5 p-3 rounded-2xl border border-zinc-200 dark:border-white/10 space-y-1 font-mono text-[10px]">
               <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
                 <span>LLM Engine:</span> <span className="text-indigo-600 dark:text-indigo-400 font-bold">Gemini 3.7 Flash</span>
               </div>
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
             <span>•</span>
             <span>Terms of Service</span>
             <span>•</span>
-            <span>College Submission Specs</span>
+            <span>Enterprise Security</span>
           </div>
         </div>
 
