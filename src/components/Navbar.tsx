@@ -96,23 +96,20 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Right User Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
           
-          {/* Visual Theme Switcher */}
+          {/* Visual Theme Switcher (Icon Only) */}
           {onToggleTheme && (
             <button
               type="button"
               onClick={onToggleTheme}
-              className="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800/80 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700/80 transition-all flex items-center justify-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-9 h-9 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800/80 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700/80 transition-all flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-indigo-500/20 cursor-pointer shadow-xs"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               aria-label="Toggle visual theme"
             >
               {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-amber-400" />
+                <Sun className="w-4 h-4 text-amber-500 hover:rotate-45 transition-transform" />
               ) : (
-                <Moon className="w-4 h-4 text-indigo-600" />
+                <Moon className="w-4 h-4 text-indigo-600 hover:-rotate-12 transition-transform" />
               )}
-              <span className="text-[10px] font-bold uppercase tracking-wider hidden md:inline text-zinc-700 dark:text-zinc-300">
-                {theme === 'dark' ? 'Dark' : 'Light'}
-              </span>
             </button>
           )}
 
